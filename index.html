@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickSight</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hlavní Menu -->
+    <div id="mainMenu" class="menu">
+        <h1>QuickSight</h1>
+        <p>Vylepši svůj postřeh a soupeř s přáteli!</p>
+        <button onclick="showDifficultyMenu()">Začít Hru</button>
+        <button id="leaderboardButton">Leaderboard</button>
+    </div>
+
+    <!-- Výběr obtížnosti -->
+    <div id="difficultyMenu" class="menu hidden">
+        <h1>Vyber Obtížnost</h1>
+        <button onclick="startGame('easy')">Lehká</button>
+        <button onclick="startGame('medium')">Střední</button>
+        <button onclick="startGame('hard')">Těžká</button>
+        <button onclick="returnToMainMenu()">Zpět</button>
+    </div>
+
+    <!-- Herní Plátno -->
+    <div id="gameArea" class="hidden">
+        <div id="hud">
+            <div id="timer">⏳ Čas: 60</div>
+            <div id="score">⭐ Skóre: 0</div>
+            <button id="menuButton">Menu</button>
+        </div>
+        <div id="gameContainer"></div>
+    </div>
+
+    <!-- Konec Hry -->
+    <div id="gameOver" class="hidden">
+        <h1>Hra Konec</h1>
+        <p>Vaše skóre: <span id="finalScore">0</span></p>
+        <input type="text" id="playerName" placeholder="Zadejte své jméno" maxlength="10">
+        <button id="submitScoreButton">Uložit Skóre</button>
+        <button onclick="restartGame()">Restart</button>
+        <button onclick="returnToMainMenu()">Zpět do Menu</button>
+    </div>
+
+    <!-- Leaderboard -->
+    <div id="leaderboard" class="hidden">
+        <h1>🌟 Nejlepší Skóre 🌟</h1>
+        <ol id="leaderboardList"></ol>
+        <button onclick="returnToMainMenu()">Zpět</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
